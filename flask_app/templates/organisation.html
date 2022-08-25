@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map/organisation</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/organisation.css">
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="greenBackground">
+        <!-- navbar -->
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>                   
+                    </div>
+                </div>
+                <div class="navBarRight">
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="story">
+        <h2>MY GOOD WORLD</h2>
+        <span class="greenLine"></span>
+    </div>
+    <div class="user">
+        <div class="profile">
+            <img src="{{orga.logo}}" alt="profilepicture">
+            <div class="infoUser">
+            <p>{{orga.name}}</p>
+            <p>Created in {{orga.date}}</p>
+            <p id="settings"><img src="../static/img/gear.png" alt="gear"><a href="/orga/{{orga.id}}/edit">Edit</a></p>
+            </div>
+        </div>
+        <div class="story">
+            <h2 id="ourstory">OUR STORY</h2>
+            <span class="greenLine"></span>
+            <div class="storyOrga">
+            <p>
+                {{orga.description}}
+            </p>
+            <button class="btnSignUp"><a href="/orga/{{orga.id}}/edit">EDIT</a></button>
+        </div>
+        
+    </div>
+    <div class="savedProjects">
+        <div class="highlights">
+            <h2>Our Projects</h2>
+            <button class="btnSignUp" id="addproject"><a href="/new_project"> ADD PROJECT</a></button>
+
+                {% for project in orga_projects %}
+                <div class="project">
+                    <div class="imgMap">
+                        <img src="{{project.image}}">
+                        <img src="../static/img/bw_map.svg.png" alt="map" class="map">
+                    </div>
+                    <div class="contentProject">
+                        <h3>{{project.name}}</h3>
+                        <p class="location">{{project.location}}</p>
+                        <p class="projectcontent">{{project.description}}.</p>
+                            <div class="aboutNgo">
+                                <img src="{{orga.logo}}" alt="ngo" class="logongo">
+                                <p>Since {{project.date}}</p>
+                            </div>
+                            <div class="ngoLink">
+                                <a href="/organisations/{{orga.id}}" class="abouthem">ABOUT THEM</a>
+                                <a href="{{project.link}}" class="more">MORE ABOUT THE PROJECT</a>
+                                <a href="#" class="donate">DONATE</a>
+                                <a href="/volunteer/{{orga.id}}" class="volunteer">VOLUNTEER</a>
+                            </div>
+                        </div>
+                        <div class="areas">
+                            <ul>
+                                <li class="{% if project.area == 'water' %}waterOn{%else%} water {%endif%}" >WATER</li>
+                                <li class="{% if project.area == 'forestation' %}forestationOn{%else%}forestation{%endif%}">FORESTATION</li>
+                                <li class="{% if project.area == 'depolution' %}depolutionOn{%else%} depolution{%endif%}">DEPOLUTION</li>
+                                <li class="{% if project.area == 'education' %}educationOn{%else%}education{%endif%}">EDUCATION</li>
+                                <li class="{% if project.area == 'packaging' %}packagingOn{%else%}packaging{%endif%}">PACKAGING</li>
+                                <li class="{% if project.area == 'trash' %}trashOn{%else%}trash{%endif%}">TRASH</li>
+                                <li class="{% if project.area == 'farming' %}farmingOn{%else%}farming{%endif%}">FARMING</li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    <h2 class="margin_top">Our Donations</h2>
+                    <div class="donations">
+                    <span id="ballD"></span>
+                    <h3>Caroline D.</h3> 
+                    <h3>Planting trees in Uganda</h3>
+                    <p>200$</p>
+                    <h3>Contribute on:</h3>
+                    <p>February 2022</p>
+                </div>
+                <h2 class="margin_top">Our Volunteers</h2>
+                <div class="donations">
+                    <span id="ballD"></span>
+                    <h3>Caroline D.:</h3> 
+                    <h3>Reenforcing the river side bed.</h3>
+                    <p><p id="settings"><img src="../static/img/map-marker.png" alt="gear">Nicaragua, 4/5/2023</p> 
+                    <p>4 weeks project</p>
+                </div>
+                <div class="donations">
+                    <span id="ballC"></span>
+                    <h3>Eelco S.:</h3> 
+                    <h3>Teach English in a village in Africa.</h3>
+                    <p><p id="settings"><img src="../static/img/map-marker.png" alt="gear">Kenya, 2/6/2023</p> 
+                    <p>2 months project</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+
+</html>

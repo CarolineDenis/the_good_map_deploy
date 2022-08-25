@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map/organisation</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/projects.css">
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="greenBackground">
+        <!-- navbar -->
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>                    
+                    </div>
+                </div>
+                <div class="navBarRight">
+                    {%if not session['id'] and not session['org_id']%}
+                    <a href="/orga_or_user">Sign Up</a>
+                    {%endif%}
+                    {%if session['id'] or session['org_id']%}
+                    {% if session['id'] %}
+                    <a href="/dashboard_user">Dashboard</a>
+                    {% else %}
+                    <a href="/dashboard_orga">Dashboard</a>
+                    {%endif%}
+                    {%else%}
+                    <a href="/sign_in">Sign In</a>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="story">
+        <h2 class="margin_top">THE GOOD PROJECTS</h2>
+        <span class="greenLine"></span>
+    </div>
+
+    <div class="savedProjects">
+        <div class="highlights">
+
+            {% for project in projects %}
+            <div class="project">
+                <div class="imgMap">
+                    <img src="{{project.image}}">
+                    <img src="../static/img/bw_map.svg.png" alt="map" class="map">
+                </div>
+                <div class="contentProject">
+                    <div class="like">
+                        <h3>{{project.name}}</h3>
+                        {% if session['id'] %}
+                        {% set ns = namespace(found = false) %}
+                            {% for i in liked %}
+                                {% if i.project_id == project.id %}
+                                {% set ns.found = true %}
+                                    <img src="../static/img/heart_filled.png" alt="like" id="like">
+                                    <form action="/unlike" method="POST"><input type="hidden" name="project_id"
+                                    value="{{project.id}}"><button name="like" value="like" class="likeLink">Unlike</button></form>
+                                {% endif %}
+                            {% endfor %}
+                            {% if ns.found == false %}
+                                    <img src="../static/img/heart2.png" alt="like" id="like">
+                                    <form action="/post_like" method="POST"><input type="hidden" name="project_id"
+                                        value="{{project.id}}"><button name="like" value="like" class="like">Like</button></form>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    <p class="location">{{project.location}}</p>
+                    <p class="projectcontent">{{project.description}}.</p>
+                    <div class="aboutNgo">
+                        <img src="{{project.organisation.logo}}" alt="ngo" class="logongo">
+                        <p>Since {{project.date}}</p>
+                    </div>
+                    <div class="ngoLink">
+                        <a href="/organisations/{{project.organisation.id}}" class="abouthem">ABOUT THEM</a>
+                        <a href="{{project.link}}" class="more">MORE ABOUT THE PROJECT</a>
+                        <a href="#" class="donate">DONATE</a>
+                        <a href="/volunteer/{{project.organisation.id}}" class="volunteer">VOLUNTEER</a>
+                    </div>
+                </div>
+                <div class="areas">
+                    <ul>
+                        <li class="{% if project.area == 'water' %}waterOn{%else%} water {%endif%}">WATER</li>
+                        <li class="{% if project.area == 'forestation' %}forestationOn{%else%}forestation{%endif%}">
+                            FORESTATION</li>
+                        <li class="{% if project.area == 'depolution' %}depolutionOn{%else%} depolution{%endif%}">
+                            DEPOLUTION</li>
+                        <li class="{% if project.area == 'education' %}educationOn{%else%}education{%endif%}">EDUCATION
+                        </li>
+                        <li class="{% if project.area == 'packaging' %}packagingOn{%else%}packaging{%endif%}">PACKAGING
+                        </li>
+                        <li class="{% if project.area == 'trash' %}trashOn{%else%}trash{%endif%}">TRASH</li>
+                        <li class="{% if project.area == 'farming' %}farmingOn{%else%}farming{%endif%}">FARMING</li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <footer>
+            <p>SIGN UP FOR THE NEWSLETTER</p>
+            <p>ⓒ by Caroline Denis</p>
+        </footer>
+
+
+        <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/style.css">
+</head>
+
+<body>
+    <div class="greenBackground">
+        <!-- navbar -->
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>
+                    </div>
+                </div>
+                <div class="navBarRight">
+                    {%if not session['id'] and not session['org_id']%}
+                    <a href="/orga_or_user">Sign Up</a>
+                    {%endif%}
+                    {%if session['id'] or session['org_id']%}
+                    {% if session['id'] %}
+                    <a href="/dashboard_user">Dashboard</a>
+                    {% else %}
+                    <a href="/dashboard_orga">Dashboard</a>
+                    {%endif%}
+                    {%else%}
+                    <a href="/sign_in">Sign In</a>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+        <!-- header -->
+        <header>
+            <h1>THE GOOD MAP</h1>
+            <h3>"TRAVEL THE WORLD OF SOLUTIONS"</h3>
+            <!-- map -->
+            <div class="animation hide">
+                <!-- <img src="../static/img/map.png" alt="maps" class="hide"> -->
+        </header>
+        <div class="pictureanimation hide">
+            <img src="../static/img/eolienne.jpg" id="changeThis" style="width: 80px; border-radius: 70%;">
+            <img src="../static/img/eolienne.jpg" id="changeThis2" style="width: 80px; border-radius: 50%">
+            <img src="../static/img/eolienne.jpg" id="changeThis3" style="width: 80px; border-radius: 50%">
+            <img src="../static/img/eolienne.jpg" id="changeThis4" style="width: 80px; border-radius: 50%">
+        </div>
+        <p class="whiteBlock"></p>
+    </div>
+    </div>
+    </div>
+    <!-- the story  -->
+    <div class="story">
+        <h2>THE STORY</h2>
+        <span class="greenLine"></span>
+        <p>
+            Wouldn't it be nice for once to see all the good things that are happening in the world? Yes, the glaciers
+            are melting, the forests are dangerously decreasing size and the dolphins have plastic necklaces. But,
+            there's also people out there that are trying to make a difference for a more sustainable world. We decided
+            to gather these amazing projects and to show you that sometimes a little gesture can make a big
+            difference.
+        </p>
+    </div>
+    <!-- highlight projects -->
+    <div class="highlights">
+        <h2>HIGHLIGHTS OF THE MONTH</h2>
+        <span class="greenLine"></span>
+        {% for project in projects %}
+        <div class="project" id="projectsection">
+            <div class="imgMap">
+                <img src="{{project.image}}" alt="project1">
+                <img src="../static/img/bw_map.svg.png" alt="map" id="mapbw">
+            </div>
+            <div class="contentProject">
+                <div class="like">
+                    <h3>{{project.name}}</h3>
+                    {% if session['id'] %}
+                    {% set ns = namespace(found = false) %}
+                    {% for i in liked %}
+                    {% if i.project_id == project.id %}
+                    {% set ns.found = true %}
+                    <img src="../static/img/heart_filled.png" alt="like" id="like">
+                    <form action="/unlike" method="POST"><input type="hidden" name="project_id"
+                            value="{{project.id}}"><button name="like" value="like" class="likeLink">Unlike</button>
+                    </form>
+                    {% endif %}
+                    {% endfor %}
+                    {% if ns.found == false %}
+                    <img src="../static/img/heart2.png" alt="like" id="like">
+                    <form action="/post_like" method="POST"><input type="hidden" name="project_id"
+                            value="{{project.id}}"><button name="like" value="like" class="likeLink">Like</button></form>
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <p class="location">{{project.country}}</p>
+                <p class="projectcontent">{{project.description}}</p>
+                <div class="aboutNgo">
+                    <img src="{{project.organisation.logo}}" alt="ngo" class="logongo">
+                    <p>Since {{project.organisation.date}}</p>
+                </div>
+                <div class="ngoLink">
+                    <a href="/organisations/{{project.organisation.id}}" class="abouthem">ABOUT THEM</a>
+                    <a href="{{project.link}}" class="more">MORE ABOUT THE PROJECT</a>
+                    <a href="#" class="donate">DONATE</a>
+                    <a href="/volunteer/{{project.organisation.id}}" class="volunteer">VOLUNTEER</a>
+                </div>
+            </div>
+            <div class="areas">
+                <ul>
+                    <li class="{% if project.area == 'water' %}waterOn{%else%} water {%endif%}">WATER</li>
+                    <li class="{% if project.area == 'forestation' %}forestationOn{%else%}forestation{%endif%}">
+                        FORESTATION</li>
+                    <li class="{% if project.area == 'depolution' %}depolutionOn{%else%} depolution{%endif%}">DEPOLUTION
+                    </li>
+                    <li class="{% if project.area == 'education' %}educationOn{%else%}education{%endif%}">EDUCATION</li>
+                    <li class="{% if project.area == 'packaging' %}packagingOn{%else%}packaging{%endif%}">PACKAGING</li>
+                    <li class="{% if project.area == 'trash' %}trashOn{%else%}trash{%endif%}">TRASH</li>
+                    <li class="{% if project.area == 'farming' %}farmingOn{%else%}farming{%endif%}">FARMING</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    <!-- register -->
+    <div class="registerArea">
+        <h2>JOIN THE GOOD MAP</h2>
+        <span class="greenLine"></span>
+        <div class="optionsRegister">
+            <div class="registerUser">
+                <p>
+                    Are you an organisation or just a driven group of people trying to give this planet a better future?
+                    Sign up here and share your projects with the world, find volunteers, collect donations and learn
+                    about other like minded activists.
+                </p>
+                <button class="btnSignUp"><a href="/register_orga">SIGN UP</a></button>
+            </div>
+
+            <div class="registerUser">
+                <p>
+                    Do you dream of a better future, would you love to support organisations or are you looking for the
+                    best place to volunteer? Here is the place to sign up. Have access to all the cool projects that are
+                    happening around the world, learn about their motivations, save your favorites and have direct
+                    contact with them.
+                </p>
+                <button class="btnSignUp"><a href="/register_user">SIGN UP</a></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+
+</body>
+
+</html>

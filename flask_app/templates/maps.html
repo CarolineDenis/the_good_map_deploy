@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/style/locatorplus.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="greenBackground">
+        <!-- navbar -->
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>
+                    </div>
+                </div>
+                <div class="navBarRight">
+                    {% if not session['id'] and not session['org_id'] %}
+                    <a href="/orga_or_user">Sign Up</a>
+                    {%endif%}
+                    {% if session['id'] or session['org_id'] %}
+                    {% if session['id'] %}
+                    <a href="/dashboard_user">Dashboard</a>
+                    {% else %}
+                    <a href="/dashboard_orga">Dashboard</a>
+                    {%endif%}
+                    {%else%}
+                    <a href="/sign_in">Sign In</a>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="story">
+    <h2 class="solutions">A World Of Solutions</h2>
+    <span class="greenLine"></span>
+</div>
+    <div class="block">
+        <ul id="latlong">
+            {% for project in projects %}
+            <li id="latitude">{{project.latitude}}</li>
+            <li id="longitude">{{project.longitude}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="see">
+        <p>Drag Pegman to discover the surrounding of your favorite project.</p>
+    </div>
+
+<div class="rec">
+    <video autoplay width="420" height="340">
+        <source src="../static/img/map_recording.mp4" type="video/mp4">
+    </video id="map_rec">
+</div>
+    <div class="exp">
+        <p id="down">This page allows you to drag Pegman onto each project markers to look at a 3D view. Each marker is draw instantly once a new project is created on the platform. For API key security reasons, this feature is momentarally unavailable.</p>
+    </div>
+
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+</body>
+
+</html>

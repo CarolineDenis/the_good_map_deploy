@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map/signuporga</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/sign_in.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="greenBackground">
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="story">
+        <h2>SIGN IN</h2>
+        <span class="greenLine"></span>
+    </div>
+    <div class="sign_in_forms">
+    <div class="formSignUp">
+        <h3>USER</h3>
+        <form action="/login_user" method="post">
+            {% for message in get_flashed_messages(category_filter=['err_log']) %}
+            <p class="text-danger">{{ message }}</p>
+            {% endfor %}
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" name="email">
+            </div>
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    <div class="formSignUp">
+        <h3>Organisation</h3>
+        <form action="/login_orga" method="post">
+            {% for message in get_flashed_messages(category_filter=['err_log']) %}
+            <p class="text-danger">{{ message }}</p>
+            {% endfor %}
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" name="email">
+            </div>
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    </div>
+    <img src="../static/img/hand_map.png" alt="hand_map" id="hand_map">
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+
+</html>

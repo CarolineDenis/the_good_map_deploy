@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map/signupuser</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/orga_or_user.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+        <!-- navbar -->
+    <div class="greenBackground">
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="registerArea">
+        <h2>JOIN THE GOOD MAP</h2>
+        <span class="greenLine"></span>
+        <div class="optionsRegister">
+            <div class="registerUser">
+                <p>
+                    Are you an organisation or just a driven group of people trying to give this planet a better future? Sign up here and share your projects with the world, find volunteers, collect donations and learn about other like minded activists. 
+                </p>
+                <button class="btnSignUp"><a href="/register_orga">SIGN UP</a></button>
+            </div>
+
+            <div class="registerUser">
+                <p>
+                    Do you dream of a better future, would you love to support organisations or are you looking for the
+                    best place to volunteer? Here is the place to sign up. Have access to all the cool projects that are
+                    happening around the world, learn about their motivations, save your favorites and have direct
+                    contact with them.
+                </p>
+                <button class="btnSignUp" ><a href="/register_user">SIGN UP</a></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+
+</html>

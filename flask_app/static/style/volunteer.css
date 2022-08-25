@@ -1,0 +1,159 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    letter-spacing: 2.5px;
+}
+
+.greenBackground{
+    background-color: #b6bb58;
+    color: white;
+} 
+
+.fixed{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #b6bb58;
+}
+
+h2{
+    font-weight: 400;
+    color: #979e02;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+p, h3{
+    color: #706f6f;
+}
+.navBar{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 30px 0 15px 0;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-bottom: 5px solid white;
+}
+
+.navBar h1{
+    font-weight: 400;
+    margin: 10px;
+    margin-bottom: 22px;
+}
+
+#heartmap{
+    width: 80px;
+    position: fixed;
+    top: 70px;
+    left: 220px;
+}
+
+.navBar a {
+    color: white;
+    margin: 10px;
+}
+.navBar a:hover{
+    font-weight: bold;
+}
+.menu a{
+    color: white;
+    margin: 10px;
+}
+.menu a:hover{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navBarLeft{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+.navBarRight{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+footer{
+    background-color: #b6bb58;
+    margin-top: 100px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+footer p{
+    color: white;
+    margin: 40px;
+}
+
+.greenLine{
+    height: 2px;
+    width: 15%;
+    background-color: #979e02;
+    margin-bottom: 20px;
+}
+
+.story{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.story h2{
+    margin-bottom: 10px;
+}
+
+.mail{
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 1px solid  #979e02;
+    color: #706f6f;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+h4{
+    margin-left: 22%;
+    margin-top: 50px;
+}
+
+.bold{
+    font-weight: bold;
+    margin: 10px;
+}
+
+.center{
+    text-align: center;
+}
+
+p{
+    line-height: 2em;
+    margin-left: 5px;
+}
+
+li{
+    list-style: circle;
+    margin-left: 10px;
+}
+
+#heart_map{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 0;
+}

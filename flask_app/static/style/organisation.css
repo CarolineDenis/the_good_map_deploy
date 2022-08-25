@@ -1,0 +1,446 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    letter-spacing: 2.5px;
+}
+
+.greenBackground{
+    background-color: #b6bb58;
+    color: white;
+} 
+
+.fixed{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #b6bb58;
+}
+
+h2{
+    font-weight: 400;
+    color: #979e02;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+p, h3{
+    color: #706f6f;
+}
+.navBar{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 30px 0 15px 0;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-bottom: 5px solid white;
+}
+
+.navBar h1{
+    font-weight: 400;
+    margin: 10px;
+    margin-bottom: 22px;
+}
+
+#heartmap{
+    width: 80px;
+    position: fixed;
+    top: 70px;
+    left: 220px;
+}
+
+.navBar a {
+    color: white;
+    margin: 10px;
+}
+.navBar a:hover{
+    font-weight: bold;
+}
+.menu a{
+    color: white;
+    margin: 10px;
+}
+.menu a:hover{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navBarLeft{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+.navBarRight{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+footer{
+    background-color: #b6bb58;
+    margin-top: 100px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+footer p{
+    color: white;
+    margin: 40px;
+}
+
+.greenLine{
+    height: 2px;
+    width: 15%;
+    background-color: #979e02;
+    margin-bottom: 20px;
+}
+
+.story{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.story h2{
+    margin-bottom: 10px;
+}
+
+
+.highlights{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.project{
+    display: flex;
+    justify-content: start;
+    margin-top: 150px;
+    margin-left: 10%;
+    gap: 15px;
+}
+
+.imgMap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    flex: 1;
+    margin: 5px;
+}
+
+.map{
+    width: 60%;
+    margin-top: 10px;
+}
+
+.imgMap img{
+    height: 100%;
+    width: 100%;
+}
+
+.contentProject{
+    flex: 2;
+    padding: 0px 5px 0px 20px;
+}
+
+.location{
+    margin-bottom: 10px;
+    font-size: smaller;
+    color: #888686;
+}
+
+.projectcontent{
+    text-align: justify;
+    text-align-last: center;
+    margin-right: 15px;
+    line-height: 25px;
+}
+
+.aboutNgo{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.aboutNgo p{
+    font-size: .1em;
+    margin: 0 5px;
+}
+
+.ngoLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.ngoLink a{
+    color: #706f6f;
+    font-size: .3em;
+}
+
+.abouthem{
+    text-align: right;
+    padding: 10px;
+    flex: 1;
+}
+.more{
+    border-left: 1px solid #706f6f;
+    text-align: left;
+    padding: 10px;
+    flex: 1;
+}
+.donate{
+    text-align: right;
+    padding: 10px;
+    flex: 1;
+}
+.volunteer{
+    border-left: 1px solid #706f6f;
+    text-align: left;
+    padding: 10px;
+    flex: 1;
+}
+
+.areas{
+    flex: 1;
+    margin-top: 10%;
+}
+
+.waterOn{
+    background-color: rgb(12, 127, 198);
+    color: white;
+    padding: 10px 5px;
+    font-size: 0.2em;
+}
+.forestationOn{
+    background-color: rgb(42, 131, 85);
+    color: white;
+    padding: 10px 5px;
+    font-size: 0.2em;
+}
+.depolutionOn{
+    background-color: rgb(242, 171, 57);
+    color: white;
+    padding: 10px 5px;
+    font-size: 0.2em;
+}
+.educationOn{
+    background-color: rgb(220, 128, 239);
+    color: white;
+    padding: 10px 5px;
+    font-size: 0.2em;
+}
+.packagingOn{
+    background-color: rgb(112, 124, 132);
+    color: white;
+    padding: 10px 5px;
+    font-size: 0.2em;
+}
+.farmingOn{
+    background-color: rgb(244, 234, 123);
+    color: white;
+    padding: 10px 5px;
+    font-size: 0.2em;
+}
+.trashOn{
+    background-color: rgb(138, 151, 220);
+    color: white;
+    padding: 10px 5px;
+    font-size: 0.2em;
+}
+
+.water{
+    background-color: rgb(3, 97, 156);
+    color: white;
+    padding: 10px 5px;
+    opacity: 0.5;
+    font-size: 0.2em;
+}
+.forestation{
+    background-color: rgb(42, 131, 85);
+    color: white;
+    padding: 10px 5px;
+    opacity: 0.5;
+    font-size: 0.2em;
+}
+.depolution{
+    background-color: rgb(242, 171, 57);
+    color: white;
+    padding: 10px 5px;
+    opacity: 0.5;
+    font-size: 0.2em;
+}
+.education{
+    background-color: rgb(219, 93, 244);
+    color: white;
+    padding: 10px 5px;
+    opacity: 0.5;
+    font-size: 0.2em;
+}
+.packaging{
+    background-color: rgb(112, 124, 132);
+    color: white;
+    padding: 10px 5px;
+    opacity: 0.5;
+    font-size: 0.2em;
+}
+.farming{
+    background-color: rgb(244, 234, 123);
+    color: white;
+    padding: 10px 5px;
+    opacity: 0.5;
+    font-size: 0.2em;
+}
+.trash{
+    background-color: rgb(138, 151, 220);
+    color: white;
+    padding: 10px 5px;
+    opacity: 0.5;
+    font-size: 0.2em;
+}
+
+.logongo{
+    width: 10%;
+    margin-top: 15px;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+    font-size: 1em;
+}
+
+.profile img{
+    width: 100px;
+}
+
+.profile p{
+    margin: 10px;
+}
+
+#settings{
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+#settings img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.margin_top{
+    margin-top: 100px;
+}
+
+.donations{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+#ballD{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #979e02;
+}
+
+#ballC{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #b6bb58;
+}
+
+.story p{
+    line-height: 30px;
+    min-width: 20%;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.storyOrga{
+    border: 1px solid #b6bb58;
+    padding: 15px 25px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+    width: 70%;
+    border-radius: 20px;
+}
+
+.btnSignUp{
+    border: 1px solid #706f6f;
+    border-radius: 20px;
+    padding: 10px;
+    width: 15%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.btnSignUp:hover{
+    border: 1px solid #706f6f;
+    color: #979e02;
+    font-weight: bold;
+}
+.btnSignUp a{
+    color: #706f6f;
+    text-decoration: none;
+}
+.btnSignUp a:hover{
+    color: #979e02;
+    text-decoration: none;
+}
+#addproject a{
+    color: #706f6f;
+    text-decoration: none;
+}
+#addproject a:hover{
+    color: #979e02;
+    text-decoration: none;
+}
+
+.infoUser a{
+    color: #706f6f;
+    text-decoration: none;
+}
+
+#addproject{
+    border: 1px solid #706f6f;
+    border-radius: 20px;
+    padding: 10px;
+    width: 20%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#addproject:hover{
+    border: 1px solid #706f6f;
+    color: #979e02;
+    font-weight: bold;
+}
+
+#ourstory{
+    margin-top: 5px;
+}

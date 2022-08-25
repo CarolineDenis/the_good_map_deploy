@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map/volunteer</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/volunteer.css">
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="greenBackground">
+        <!-- navbar -->
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>                    </div>
+                </div>
+                <div class="navBarRight">
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="story">
+        <h2 class="margin_top">THE GOOD PROJECTS VOLUNTEER</h2>
+        <span class="greenLine"></span>
+    </div>
+
+    <h4>{{orga.name}} ORGANISATION </h4>
+    <div class="mail">
+        <p class="center">EMAIL TEMPLATE</p>
+        <p class="bold">TO:</p> 
+        <p>{{orga.email}}</p>
+        <p class="bold">Subject:</p>
+        <p>Project name + volunteer + date</p>
+        <p class="bold">Content:</p>
+        <ul>
+        <li><p>A few line about yourself.</p></li>
+        <li><p>Your age.</p></li>
+        <li><p>Motivations, previous experiences.</p></li>
+        <li><p>Best contact.</p></li>
+        </ul>
+    </div>
+
+    <img src="../static/img/hand_map.png" alt="hear-tmap" id="heart_map">
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+
+</html>

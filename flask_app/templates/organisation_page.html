@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map/organisation page</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/organisation_page.css">
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="greenBackground">
+        <!-- navbar -->
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>
+                    </div>
+                </div>
+                <div class="navBarRight">
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="story">
+        <h2 class="margin_top">THE GOOD PROJECTS ORGANISATIONS</h2>
+        <span class="greenLine"></span>
+        <h3>{{orga.name}}</h3>
+    </div>
+
+    <div class="column">
+        <div class="side_bar">
+            <div class="organisation_list">
+                <h4>ORGANISATIONS</h4>
+                <ul>
+                    {% for organisation in organisations_list %}
+                    <li><a href="/organisations/{{organisation.id}}">{{organisation.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="projects_list">
+                <h4>PROJECTS</h4>
+                <ul>
+                    {% for project in projects %}
+                    <li><a href="/projects">{{project.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="countries">
+                <h4>COUNTRIES</h4>
+                <ul>
+                    {% for country in projects %}
+                    <li><a href="/map">{{country.country}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="savedProjects">
+            <div class="highlights">
+                <img src="{{orga.logo}}" id="orga_logo">
+                <p>{{orga.area}}</p>
+                <h3 class="description">{{orga.description}}</h3>
+                <p>Since {{orga.date}}</p>
+                <p class="location">{{orga.email}}</p>
+                <div class="projects_list_orga">
+                    <h3>PROJECTS</h3>
+                    <ul id="margin_top2">
+                        {% for project in projects_orga %}
+                        <li>{{project.name}}</li>
+                        {% endfor %}
+                    </ul>
+                    {%for project in projects_orga%}
+                    <img src="{{project.image}}" alt="project_image" id="project_image">
+                    {%endfor%}
+                </div>
+            </div>
+            <div class="areas">
+                <ul>
+                    <li class="water">WATER</li>
+                    <li class="forestationOn">FORESTATION</li>
+                    <li class="depolution">DEPOLUTION</li>
+                    <li class="educationOn">EDUCATION</li>
+                    <li class="packaging">PACKAGING</li>
+                    <li class="trash">TRASH</li>
+                    <li class="farming">FARMING</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+
+</html>

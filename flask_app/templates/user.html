@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Map/user</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/user.css">
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="greenBackground">
+        <!-- navbar -->
+        <div class="fixed">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <h1>#THEGOODMAP</h1>
+                    <div class="menu">
+                        <a href="/">HOME</a>
+                        <a href="/projects">PROJECTS</a>
+                        <a href="/map"><img src="../static/img/hand_map.png" alt="mapheart" id="heartmap"></a>                    </div>
+                </div>
+                <div class="navBarRight">
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="story">
+        <h2>MY GOOD WORLD</h2>
+        <span class="greenLine"></span>
+    </div>
+    <div class="user">
+        <div class="profile">
+            <img src="{{user.profile}}" alt="profilepicture">
+            <div class="infoUser">
+            <p>{{user.first_name}}</p>
+            <p>Created in 2022</p>
+            <p id="settings"><img src="../static/img/gear.png" alt="gear"><a href="/user/{{user.id}}/edit">Edit</a></p>
+            </div>
+        </div>
+        <div class="savedProjects">
+            <div class="highlights">
+                <h2>My Saved Project</h2>
+                {% if project_liked.projects_liked[0].id != none %}
+                {% for project in project_liked.projects_liked %}
+                <div class="project">
+                    <div class="imgMap">
+                        <img src="{{project.image}}" alt="project1">
+                        <img src="../static/img/bw_map.svg.png" alt="map" id="mapbw">
+                    </div>
+                    <div class="contentProject">
+                        <div class="like">
+                            <h3>{{project.name}}</h3>
+                            {% if session['id'] %}
+                            {% set ns = namespace(found = false) %}
+                                {% for i in liked %}
+                                    {% if i.project_id == project.id %}
+                                    {% set ns.found = true %}
+                                        <img src="../static/img/heart_filled.png" alt="like" id="like">
+                                        <form action="/unlike" method="POST"><input type="hidden" name="project_id"
+                                        value="{{project.id}}"><button name="like" value="like" class="likeLink">Unlike</button></form>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if ns.found == false %}
+                                        <img src="../static/img/heart2.png" alt="like" id="like">
+                                        <form action="/post_like" method="POST"><input type="hidden" name="project_id"
+                                            value="{{project.id}}"><button name="like" value="like" class="likeLink">Like</button></form>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <p class="location">{{project.city}}</p>
+                        <p class="projectcontent">{{project.description}}</p>
+                            <div class="aboutNgo">
+                                <img src="{{project.organisation.logo}}" alt="ngo" class="logongo">
+                                <p>Since {{project.date}}</p>
+                            </div>
+                            <div class="ngoLink">
+                                <a href="/organisations/{{project.organisation.id}}" class="abouthem">ABOUT THEM</a>
+                                <a href="{{project.link}}" class="more">MORE ABOUT THE PROJECT</a>
+                                <a href="#" class="donate">DONATE</a>
+                                <a href="/volunteer/{{project.organisation_id}}" class="volunteer">VOLUNTEER</a>
+                            </div>
+                        </div>
+                        <div class="areas">
+                            <ul>
+                                <li class="{% if project.area == 'water' %}waterOn{%else%} water {%endif%}" >WATER</li>
+                                <li class="{% if project.area == 'forestation' %}forestationOn{%else%}forestation{%endif%}">FORESTATION</li>
+                                <li class="{% if project.area == 'depolution' %}depolutionOn{%else%} depolution{%endif%}">DEPOLUTION</li>
+                                <li class="{% if project.area == 'education' %}educationOn{%else%}education{%endif%}">EDUCATION</li>
+                                <li class="{% if project.area == 'packaging' %}packagingOn{%else%}packaging{%endif%}">PACKAGING</li>
+                                <li class="{% if project.area == 'trash' %}trashOn{%else%}trash{%endif%}">TRASH</li>
+                                <li class="{% if project.area == 'farming' %}farmingOn{%else%}farming{%endif%}">FARMING</li>
+                            </ul>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    {%endif%}
+                <h2>My Donations</h2>
+                <div class="donations">
+                    <span id="ballD"></span>
+                    <h3>WWF</h3> 
+                    <h3>Planting trees in Uganda</h3>
+                    <p>200$</p>
+                    <h3>Contribute on:</h3>
+                    <p>February 2022</p>
+                </div>
+                <h2>My Volunteering</h2>
+                <div class="donations">
+                    <span id="ballD"></span>
+                    <h3>Safe A River:</h3> 
+                    <h3>Reenforcing the river side bed.</h3>
+                    <p><p id="settings"><img src="../static/img/map-marker.png" alt="gear">Nicaragua, 4/5/2023</p> 
+                    <p>4 weeks project</p>
+                </div>
+                <div class="donations">
+                    <span id="ballC"></span>
+                    <h3>Teach English:</h3> 
+                    <h3>Teach English in a village in Africa.</h3>
+                    <p><p id="settings"><img src="../static/img/map-marker.png" alt="gear">Kenya, 2/6/2023</p> 
+                    <p>2 months project</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>SIGN UP FOR THE NEWSLETTER</p>
+        <p>ⓒ by Caroline Denis</p>
+    </footer>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+
+</html>
