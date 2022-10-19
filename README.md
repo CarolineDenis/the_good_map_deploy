@@ -1,5 +1,6 @@
 <h1 align="center"> THE GOOD MAP </h1>
-<p>Python app allowing non-profit organizations to create project and find volunteers<p>
+<p align="center">Python app allowing non-profit organizations to create project and find volunteers<p>
+<p align="center"> Built out registration, login utilizing bcrypt, personal information fields validation, cookie recognition to differentiate users from organizations for a secure user experience. Employed a Flask Python framework for fast implementation of additional features via Jinja and JavaScript such as user dashboard, varied logic for authorization, and flashed messages. Created explicit controllers routing for quick, responsive component rendering and website navigation. Used AJAX and JQuery to offer a 3D experience to visualize project’s site with public API, tool being linked with MySQL database in order to create interactive pin markers when new projects are created. <p>
 <h2 align="center">Technologies Used:</h2>
 <p align="center"> PYTHON | JAVASCRIPT | MYSQL | JQUERY | APIs | FLASK | HTML | CSS | BCRYPT</p>
 <p align="center">
